@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   entry: [
@@ -18,6 +19,7 @@ module.exports = {
     alias: {
       applicationStyles: 'app/styles/app.scss',
       Main: 'app/components/Main.jsx',
+      Navigation: 'app/components/Navigation.jsx',
     },
     extensions: ['', '.js', '.jsx'],
   },
@@ -41,5 +43,10 @@ module.exports = {
       },
     }),
   ],
+  sassLoader: {
+    includePaths: [
+      path.resolve(__dirname, './node_modules/foundation-sites/scss')
+    ]
+  },
   devtool: 'cheap-module-eval-source-map',
 };

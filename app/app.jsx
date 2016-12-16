@@ -1,4 +1,3 @@
-import 'style!css!foundation-sites/dist/css/foundation.min.css';
 import 'style!css!sass!applicationStyles';
 
 import {
