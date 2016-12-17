@@ -1,9 +1,17 @@
 {
-  "name": "react-boilerplate",
+  "name": "react-todo",
   "version": "1.0.0",
-  "description": "Simple react booilerplate",
+  "description": "Simple todo app made with React.js",
   "main": "index.js",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vital-edu/react-todo.git"
+  },
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/vital-edu/react-todo/issues"
+  },
+  "homepage": "https://github.com/vital-edu/react-todo#readme",
   "scripts": {
     "test": "karma start",
     "start": "node server.js"
