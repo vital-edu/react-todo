@@ -9,7 +9,7 @@ export default class Navigation extends React.Component {
         <div className="top-bar-left">
           <ul className="menu">
             <li className="menu-text">
-              React Boilerplate
+              Todo App
             </li>
           </ul>
         </div>

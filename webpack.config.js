@@ -16,10 +16,12 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
+    modulesDirectories: [
+      'node_modules',
+      './app/components'
+    ],
     alias: {
       applicationStyles: 'app/styles/app.scss',
-      Main: 'app/components/Main.jsx',
-      Navigation: 'app/components/Navigation.jsx',
     },
     extensions: ['', '.js', '.jsx'],
   },
