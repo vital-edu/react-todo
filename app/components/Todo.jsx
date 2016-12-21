@@ -5,7 +5,7 @@ export default class Todo extends React.Component {
     let {id, title} = this.props;
     return (
       <div>
-        {id}. {title}
+        {title}
       </div>
     );
   }

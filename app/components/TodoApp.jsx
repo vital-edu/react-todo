@@ -3,6 +3,7 @@ import Navigation from 'Navigation';
 import React from 'react';
 import TodoList from 'TodoList';
 import TodoSearch from 'TodoSearch';
+import uuid from 'node-uuid';
 
 export default class TodoApp extends React.Component {
   constructor (props) {
@@ -11,13 +12,13 @@ export default class TodoApp extends React.Component {
       showCompleted: false,
       searchText: '',
       todos: [{
-        id: 1,
+        id: uuid(),
         title: 'Create app',
       }, {
-        id: 2,
+        id: uuid(),
         title: 'Go to the party',
       }, {
-        id: 3,
+        id: uuid(),
         title: 'Commit changes',
       }],
     };
@@ -27,7 +28,14 @@ export default class TodoApp extends React.Component {
   }
 
   handleAddTodo (title) {
-    alert('newTodo: ' + title);
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {
+          id: uuid(),
+          title: title,
+        }],
+    });
   }
 
   handleSearch (showCompleted, searchText) {
