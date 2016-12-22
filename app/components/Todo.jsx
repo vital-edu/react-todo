@@ -2,10 +2,18 @@ import React from 'react';
 
 export default class Todo extends React.Component {
   render() {
-    let {id, title} = this.props;
+    let {id, title, completed} = this.props;
+
     return (
       <div>
-        {title}
+        <label>
+          <input
+            checked={completed}
+            onChange={() => {this.props.onToggle(id)}}
+            ref="todoStatus"
+            type="checkbox" />
+          {title}
+        </label>
       </div>
     );
   }
