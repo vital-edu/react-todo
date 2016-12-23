@@ -21,10 +21,13 @@ export default class TodoSearch extends React.Component {
           placeholder="Search todos"
           ref="searchText"
           type="text"/>
-        <input
-          onChange={this.handleSearch}
-          ref="showCompleted"
-          type="checkbox"/> Search completed todos
+        <label>
+          <input
+            onChange={this.handleSearch}
+            ref="showCompleted"
+            type="checkbox"/>
+          Search completed todos
+        </label>
       </div>
     );
   }
