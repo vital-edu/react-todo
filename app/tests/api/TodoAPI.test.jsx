@@ -54,4 +54,56 @@ describe('TodoAPI', () => {
       expect(actualTodos).toEqual(todos);
     });
   });
+
+  describe('filterTodos', () => {
+    let todos = [{
+      id: 1,
+      title: '1st todo',
+      completed: true,
+    }, {
+      id: 2,
+      title: '2nd todo',
+      completed: false,
+    }, {
+      id: 3,
+      title: '3rd todo',
+      completed: true,
+    }]
+
+    describe('showCompleted argument', () => {
+      it('should return all items if showCompleted is true', () => {
+        let filteredTodos = TodoAPI.filterTodos(todos, true, undefined);
+
+        expect(filteredTodos.length).toBe(3);
+      });
+
+      it('should return non-completed todos if showCompleted is false', () => {
+        let filteredTodos = TodoAPI.filterTodos(todos, false, undefined);
+
+        expect(filteredTodos.length).toBe(1);
+      });
+    });
+
+    describe('searchText argument', () => {
+      it('should filter todos by searchText', () => {
+        let filteredTodos = TodoAPI.filterTodos(todos, true, 'rd');
+
+        expect(filteredTodos.length).toEqual(1);
+      });
+
+      it('should return all todos if searchText is empty', () => {
+        let filteredTodos = TodoAPI.filterTodos(todos, true, '');
+
+        expect(filteredTodos.length).toEqual(3);
+      });
+    });
+
+    it('should sort by complete status', () => {
+      let filteredTodos = TodoAPI.filterTodos(todos, true, undefined);
+
+      expect(filteredTodos[0].completed).toEqual(false);
+      expect(filteredTodos[1].completed).toEqual(true);
+      expect(filteredTodos[2].completed).toEqual(true);
+    });
+  });
 });

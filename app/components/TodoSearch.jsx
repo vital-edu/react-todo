@@ -26,7 +26,7 @@ export default class TodoSearch extends React.Component {
             onChange={this.handleSearch}
             ref="showCompleted"
             type="checkbox"/>
-          Search completed todos
+          Show completed todos
         </label>
       </div>
     );
