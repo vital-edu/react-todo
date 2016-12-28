@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 export default class Todo extends React.Component {
-  render() {
+  render () {
     let {
       id,
       title,
@@ -10,6 +10,7 @@ export default class Todo extends React.Component {
       createdAt,
       completedAt,
     } = this.props;
+    let todoClassName = completed ? 'todo todo-completed' : 'todo';
 
     function renderDate () {
       let message, timestamp;
@@ -26,17 +27,22 @@ export default class Todo extends React.Component {
     }
 
     return (
-      <div>
-        <label>
-          <input
-            checked={completed}
-            onChange={() => {this.props.onToggle(id)}}
-            ref="todoStatus"
-            type="checkbox" />
-          <p>{title}</p>
-          <p>{renderDate()}</p>
-        </label>
-      </div>
+      <label>
+        <div className={todoClassName}>
+          <div>
+            <input
+              checked={completed}
+              onChange={() => { this.props.onToggle(id) } }
+              ref="todoStatus"
+              type="checkbox"
+              />
+          </div>
+          <div>
+            <p>{title}</p>
+            <p className="todo__subtext">{renderDate()}</p>
+          </div>
+        </div>
+      </label>
     );
   }
 }

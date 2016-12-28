@@ -21,7 +21,7 @@ export default class TodoApp extends React.Component {
     this.handleToggle = this.handleToggle.bind(this);
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     TodoAPI.setTodos(this.state.todos);
   }
 
@@ -58,19 +58,21 @@ export default class TodoApp extends React.Component {
     this.setState({todos});
   }
 
-  render() {
+  render () {
     let { todos, showCompleted, searchText } = this.state;
     let filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
 
     return (
       <div>
         <Navigation />
+        <h1 className="page-title">Todo App</h1>
         <div className="row">
-          <div className="column small-centered medium-6 large-4">
-            <h1 className="page-title">Todo App</h1>
-            <TodoSearch onSearch={this.handleSearch}/>
-            <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
-            <AddTodo onAddTodo={this.handleAddTodo}/>
+          <div className="column small-centered small-11 medium-6 large-4">
+            <div className="container">
+              <TodoSearch onSearch={this.handleSearch}/>
+              <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
+              <AddTodo onAddTodo={this.handleAddTodo}/>
+            </div>
           </div>
         </div>
       </div>

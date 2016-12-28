@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import Todo from 'Todo';
 import TodoList from 'TodoList';
@@ -26,5 +27,15 @@ describe('TodoList', () => {
 
     expect(todosComponents.length).toBe(todos.length);
 
+  });
+
+  it('should return empty message if no todo', () => {
+    let todos = [];
+
+    let todoList = TestUtils.renderIntoDocument(<TodoList todos={todos} />);
+
+    let $el = $(ReactDOM.findDOMNode(todoList));
+
+    expect($el.find('.container__message').text()).toEqual('Nothing To Do');
   });
 });
