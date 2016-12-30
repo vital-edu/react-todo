@@ -5,7 +5,7 @@ export default class Todo extends React.Component {
   render () {
     let {
       id,
-      title,
+      text,
       completed,
       createdAt,
       completedAt,
@@ -38,7 +38,7 @@ export default class Todo extends React.Component {
               />
           </div>
           <div>
-            <p>{title}</p>
+            <p>{text}</p>
             <p className="todo__subtext">{renderDate()}</p>
           </div>
         </div>

@@ -11,21 +11,21 @@ describe('TodoApp', () => {
   });
 
   it('should add todo to the todos state on handleAddTodo', () => {
-    let todoTitle = 'New Todo Text';
+    let todoText = 'New Todo Text';
     let todoApp = TestUtils.renderIntoDocument(<TodoApp />);
 
     todoApp.setState({ todos: [] });
-    todoApp.handleAddTodo(todoTitle);
+    todoApp.handleAddTodo(todoText);
 
     expect(todoApp.state.todos.length).toBe(1);
-    expect(todoApp.state.todos[0].title).toBe(todoTitle);
+    expect(todoApp.state.todos[0].text).toBe(todoText);
     expect(todoApp.state.todos[0].createdAt).toEqual(moment().unix());
   });
 
   it('should toggle completed value when handleToggle called', () => {
     let todoData = {
       id: 11,
-      title: 'Text feature',
+      text: 'Text feature',
       completed: false,
       completedAt: undefined,
       createdAt: 0,
@@ -44,7 +44,7 @@ describe('TodoApp', () => {
   it('should completedAt not exist when todo is not completed', () => {
     let todoData = {
       id: 11,
-      title: 'Text feature',
+      text: 'Text feature',
       completed: true,
       completedAt: 10,
       createdAt: 0,

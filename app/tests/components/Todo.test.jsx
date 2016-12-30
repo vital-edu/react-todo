@@ -12,7 +12,7 @@ describe('Todo', () => {
   it('should call onToggle prop with id on click', () => {
     let todoDate = {
       id: 199,
-      title: 'Write todo.text.jsx test',
+      text: 'Write todo.text.jsx test',
       completed: true,
     };
 

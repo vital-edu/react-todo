@@ -25,13 +25,13 @@ export default class TodoApp extends React.Component {
     TodoAPI.setTodos(this.state.todos);
   }
 
-  handleAddTodo (title) {
+  handleAddTodo (text) {
     this.setState({
       todos: [
         ...this.state.todos,
         {
           id: uuid(),
-          title: title,
+          text,
           completed: false,
           createdAt: moment().unix(),
           completedAt: undefined,
