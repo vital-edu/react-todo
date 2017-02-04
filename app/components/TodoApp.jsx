@@ -5,7 +5,7 @@ import TodoAPI from 'TodoAPI';
 import TodoList from 'TodoList';
 import TodoSearch from 'TodoSearch';
 import moment from 'moment';
-import uuid from 'node-uuid';
+import uuid from 'uuid';
 
 export default class TodoApp extends React.Component {
   constructor (props) {
